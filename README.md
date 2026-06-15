@@ -1,207 +1,175 @@
+<div align="center">
+
 # 🚀 Distributed API Rate Limiter
 
-A professional full-stack Distributed API Rate Limiting System built using Spring Boot, Redis, MySQL, Spring Security, Swagger/OpenAPI, and React.
+### Enterprise-Grade API Protection System
 
-## 📌 Project Overview
+<img src="https://img.shields.io/badge/Spring%20Boot-4.0-brightgreen?style=for-the-badge&logo=springboot" />
+<img src="https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk" />
+<img src="https://img.shields.io/badge/Redis-Distributed-red?style=for-the-badge&logo=redis" />
+<img src="https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql" />
+<img src="https://img.shields.io/badge/React-Frontend-61DAFB?style=for-the-badge&logo=react" />
 
-The Distributed API Rate Limiter is designed to protect APIs from abuse by controlling the number of requests that users can make within a specified time window.
+### ⚡ Secure • Scalable • High Performance • Distributed
 
-The system uses Redis for high-performance distributed request counting and MySQL for storing dynamic rate limit configurations. It supports multiple user types such as FREE, PREMIUM, and ADMIN, allowing different rate limits based on user roles.
+</div>
 
-## ✨ Features
+---
 
-✅ Distributed API Rate Limiting
+# 📖 About The Project
 
-✅ Redis-based Request Tracking
+Distributed API Rate Limiter is a production-ready system that protects APIs from abuse, spam requests, brute force attacks, and excessive traffic.
 
-✅ MySQL Dynamic Configuration
+The application uses Redis as a distributed request counter and MySQL for dynamic rate limit configuration management.
 
-✅ FREE / PREMIUM / ADMIN User Support
+This project demonstrates real-world backend engineering concepts used in enterprise-scale systems.
 
-✅ API Key Based Authentication
+---
 
-✅ Dynamic Rate Limit Management
+# ✨ Core Features
 
-✅ HTTP 429 Too Many Requests Response
+🔐 API Key Based Access Control
 
-✅ Custom Rate Limit Headers
+⚡ Distributed Rate Limiting Using Redis
 
-✅ Swagger API Documentation
+📊 Dynamic Rule Management
 
-✅ Spring Security Integration
+👥 FREE / PREMIUM / ADMIN User Types
 
-✅ React Dashboard
+🚫 Automatic Request Blocking
 
-✅ Postman Testing Support
+📈 Real-Time Request Tracking
 
-✅ Production-Ready Architecture
+⚠️ HTTP 429 Too Many Requests Handling
 
-## 🛠️ Technology Stack
+📝 Swagger API Documentation
 
-### Backend
-- Java 21
-- Spring Boot
-- Spring Security
-- Spring Data JPA
-- Spring Data Redis
-- MySQL
-- Redis
-- Lombok
-- Swagger OpenAPI
+🗄️ MySQL Persistent Configuration Storage
 
-### Frontend
-- React JS
-- Vite
-- Axios
-- CSS
+🎨 React Dashboard
 
-### Tools
-- Postman
-- GitHub
-- Docker
-- MySQL Workbench
-- Eclipse IDE
+📱 Responsive UI
 
-## 📂 Project Structure
+🔄 Dynamic Configuration Updates
 
-distributed-rate-limiter
+---
 
-├── src/main/java/com/ratelimiter
+# 🏗️ System Architecture
 
-│ ├── config
+```text
+                ┌─────────────────────┐
+                │     React UI        │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │ Spring Boot API     │
+                └──────────┬──────────┘
+                           │
+             ┌─────────────┴─────────────┐
+             ▼                           ▼
 
-│ ├── controller
+     ┌───────────────┐         ┌────────────────┐
+     │ Redis Server  │         │ MySQL Database │
+     └───────────────┘         └────────────────┘
 
-│ ├── dto
+             │
+             ▼
 
-│ ├── entity
+     ┌─────────────────────┐
+     │ Rate Limit Filter   │
+     └─────────────────────┘
 
-│ ├── exception
+             │
+             ▼
 
-│ ├── filter
+     ┌─────────────────────┐
+     │ Protected APIs      │
+     └─────────────────────┘
+```
 
-│ ├── repository
+---
 
-│ └── service
+# 🛠️ Technology Stack
 
+## Backend
+
+☕ Java 21
+
+🌱 Spring Boot
+
+🔐 Spring Security
+
+📦 Spring Data JPA
+
+⚡ Spring Data Redis
+
+📖 Swagger OpenAPI
+
+📄 Lombok
+
+---
+
+## Database
+
+🗄️ MySQL
+
+⚡ Redis
+
+---
+
+## Frontend
+
+⚛️ React JS
+
+🚀 Vite
+
+🔗 Axios
+
+🎨 CSS3
+
+---
+
+# 📂 Project Structure
+
+```text
+Distributed-API-Rate-Limiter
 │
-
-├── src/main/resources
-
-│ └── application.properties
-
+├── Backend
+│   ├── Config
+│   ├── Controllers
+│   ├── DTOs
+│   ├── Entities
+│   ├── Filters
+│   ├── Repositories
+│   ├── Services
+│   └── Exception Handling
 │
-
-└── frontend
-
-├── src
-
-├── services
-
-└── App.jsx
-
-## ⚙️ Backend Setup
-
-### Step 1: Create Database
-
-```sql
-CREATE DATABASE distributed_rate_limiter;
+├── Frontend
+│   ├── Components
+│   ├── Services
+│   ├── Dashboard
+│   └── API Integration
+│
+└── Documentation
 ```
 
-### Step 2: Configure MySQL
+---
 
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/distributed_rate_limiter
-spring.datasource.username=root
-spring.datasource.password=root
+# 🚀 API Endpoints
 
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-```
+| Method | Endpoint | Description |
+|----------|------------|-------------|
+| GET | /api/products | Get Products |
+| POST | /api/orders | Create Orders |
+| GET | /rate-limit/config | View Rules |
+| POST | /rate-limit/config | Create Rule |
+| PUT | /rate-limit/config/{id} | Update Rule |
+| DELETE | /rate-limit/config/{id} | Delete Rule |
 
-### Step 3: Start Redis
+---
 
-```bash
-docker run --name redis-rate-limiter -p 6379:6379 -d redis
-```
-
-### Step 4: Run Spring Boot Application
-
-```bash
-mvn spring-boot:run
-```
-
-Application URL:
-
-```text
-http://localhost:8080
-```
-
-Swagger URL:
-
-```text
-http://localhost:8080/swagger-ui.html
-```
-
-## 🎨 Frontend Setup
-
-```bash
-npm create vite@latest rate-limiter-frontend
-
-cd rate-limiter-frontend
-
-npm install
-
-npm install axios
-
-npm run dev
-```
-
-Frontend URL:
-
-```text
-http://localhost:5173
-```
-
-## 📡 API Endpoints
-
-### Product API
-
-```http
-GET /api/products
-```
-
-### Order API
-
-```http
-POST /api/orders
-```
-
-### Get All Rules
-
-```http
-GET /rate-limit/config
-```
-
-### Create Rule
-
-```http
-POST /rate-limit/config
-```
-
-### Update Rule
-
-```http
-PUT /rate-limit/config/{id}
-```
-
-### Delete Rule
-
-```http
-DELETE /rate-limit/config/{id}
-```
-
-## 🧪 Sample Create Rule Request
+# 🔥 Example Rate Limit Rule
 
 ```json
 {
@@ -212,47 +180,19 @@ DELETE /rate-limit/config/{id}
 }
 ```
 
-## 🔐 Sample Headers
+---
 
-### FREE User
-
-```text
-X-API-KEY: gauresh-free-key
-X-USER-TYPE: FREE
-```
-
-### PREMIUM User
+# 📊 Response Headers
 
 ```text
-X-API-KEY: gauresh-premium-key
-X-USER-TYPE: PREMIUM
+X-RateLimit-Limit
+X-RateLimit-Remaining
+X-RateLimit-Reset
 ```
 
-### ADMIN User
+---
 
-```text
-X-API-KEY: admin-user-key
-X-USER-TYPE: ADMIN
-```
-
-## ✅ Successful Response
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Laptop",
-    "price": 55000
-  },
-  {
-    "id": 2,
-    "name": "Mobile",
-    "price": 25000
-  }
-]
-```
-
-## ❌ Rate Limit Exceeded Response
+# 🚫 Rate Limit Exceeded
 
 ```json
 {
@@ -261,116 +201,75 @@ X-USER-TYPE: ADMIN
 }
 ```
 
-## 📊 Rate Limit Headers
+---
 
-```text
-X-RateLimit-Limit
-X-RateLimit-Remaining
-X-RateLimit-Reset
-```
+# 🎯 Business Benefits
 
-## 👥 User Type Limits
+✅ Prevents API Abuse
 
-| User Type | Endpoint | Limit | Window |
-|------------|-----------|--------|---------|
-| FREE | /api/products | 5 | 60 sec |
-| PREMIUM | /api/products | 100 | 60 sec |
-| ADMIN | /api/admin/dashboard | 1000 | 60 sec |
+✅ Protects Backend Resources
 
-## 🏗️ System Architecture
+✅ Controls Traffic Spikes
 
-Client (React Dashboard)
+✅ Improves System Stability
 
-↓
+✅ Enhances Security
 
-Spring Boot REST API
-
-↓
-
-Rate Limit Filter
-
-↓
-
-Redis Request Counter
-
-↓
-
-MySQL Rule Configuration
-
-↓
-
-Protected APIs
-
-## 🔄 Redis Key Format
-
-```text
-rate_limit:user:gauresh-free-key:/api/products:FREE
-```
-
-## 📈 Dashboard Capabilities
-
-- Create Rate Limit Rules
-- Update Existing Rules
-- Delete Rules
-- View All Configurations
-- Test Protected APIs
-- Display Remaining Requests
-- Display Reset Time
-- Monitor Product API Responses
-
-## 🚀 Future Enhancements
-
-- JWT Authentication
-- Role-Based Access Control
-- Analytics Dashboard
-- Request Monitoring
-- Docker Compose Support
-- Kubernetes Deployment
-- Email Notifications
-- API Usage Reports
-- Admin Management Panel
-
-## 🎯 Learning Outcomes
-
-- Spring Boot REST API Development
-- Redis Integration
-- MySQL Integration
-- Spring Security
-- JPA & Hibernate
-- Distributed Systems Concepts
-- API Throttling
-- Rate Limiting Strategies
-- React Frontend Development
-- Full Stack Development
-
-## 👨‍💻 Author
-
-Gauresh Badgujar
-
-Java Full Stack Developer
-
-## ⭐ Project Status
-
-✅ Spring Boot Backend Completed
-
-✅ Redis Integration Completed
-
-✅ MySQL Integration Completed
-
-✅ Dynamic Rate Limiting Completed
-
-✅ API Key Authentication Completed
-
-✅ Swagger Documentation Completed
-
-✅ React Dashboard Completed
-
-✅ Postman Testing Completed
-
-✅ Full Stack Project Completed
+✅ Enterprise Ready Architecture
 
 ---
 
-### 🌟 Distributed API Rate Limiter
+# 📈 Future Enhancements
 
-A robust and scalable rate limiting solution designed to secure APIs, prevent abuse, and ensure fair resource utilization using Spring Boot, Redis, MySQL, and React.
+🔑 JWT Authentication
+
+📊 Analytics Dashboard
+
+📧 Email Notifications
+
+📈 Usage Monitoring
+
+🐳 Docker Deployment
+
+☸ Kubernetes Deployment
+
+🔍 API Usage Reports
+
+---
+
+# 📸 Application Screenshots
+
+### Dashboard
+
+> Add your dashboard screenshot here
+
+### Swagger Documentation
+
+> Add Swagger screenshot here
+
+### Postman Testing
+
+> Add Postman screenshot here
+
+---
+
+# 👨‍💻 Developer
+
+## Gauresh Badgujar
+
+### Java Full Stack Developer
+
+📧 Email: gauresh2211@gmail.com
+
+💼 Tech Stack:
+Java • Spring Boot • Hibernate • MySQL • Redis • React • REST APIs
+
+---
+
+<div align="center">
+
+# ⭐ If you like this project, don't forget to Star the Repository ⭐
+
+### Made with ❤️ using Spring Boot, Redis, MySQL & React
+
+</div>
